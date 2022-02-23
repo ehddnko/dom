@@ -81,7 +81,7 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
      - ssh-rsa ... user1@gmail.com
    ```
    
-3. Run `mkvm-zsh.sh` or `mkvm-bash.sh` script.
+4. Run `mkvm-zsh.sh` or `mkvm-bash.sh` script.
    * On Windows, execute *Windows Terminal* as administrator and open *git bash*. Then, run `mkvm-bash.sh` from *git bash*. 
       ```
       Usage: mkvm-bash.sh [-n | --name] [-c | --cpu] [-m | memory]
@@ -145,7 +145,7 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
       ```
       * For example: `mkvm-zsh.sh -n docker-runner -c 1 -m 4G -d 64G -v 20.04 -i ~/.ssh/id_rsa`
    
-4. Now you can access multipass instance via SSH.
+5. Now you can access multipass instance via SSH.
 
    
 ## Delete instance
@@ -264,7 +264,7 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
    }
    ```
    
-7. Run **Remote-SSH: Connect to Host...** from vscode command palette.
+4. Run **Remote-SSH: Connect to Host...** from vscode command palette.
    * For Windows, select SSH config with colon. (manually added in previous step)
    * For MacOS, select SSH config added by script.
 
