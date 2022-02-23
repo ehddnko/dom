@@ -113,7 +113,7 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
           Output a usage guide and exit successfully.
       ```
       - For example: `mkvm-bash.sh -n docker-runner -c 1 -m 4G -d 64G -v 20.04 -i ~/.ssh/id_rsa`
-   * On MacOS, run `sudo ./mkvm-zsh.sh`.
+   * On MacOS, run `mkvm-zsh.sh`.
       ```
       Usage: mkvm-zsh.sh [-n | --name] [-c | --cpu] [-m | memory]
       [-d | --disk] [-v | --version] [-i | --identity] [-h | --help]
