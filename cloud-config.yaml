@@ -1,0 +1,66 @@
+#cloud-config
+
+# Reference: https://cloudinit.readthedocs.io/en/latest/topics/modules.html
+users:
+  - default
+  - name: ubuntu
+    gecos: Ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    shell: /bin/bash
+    ssh_import_id: None
+    lock_passwd: true
+
+# Set the system timezone.
+timezone: Asia/Seoul
+
+# By default, (most) ssh host keys are printed to the console. Setting
+# emit_keys_to_console to false suppresses this output.
+ssh:
+  emit_keys_to_console: false
+
+# By default, the fingerprints of the authorized keys for the users
+# cloud-init adds are printed to the console. Setting
+# no_ssh_fingerprints to true suppresses this output.
+no_ssh_fingerprints: true
+
+# Send pre-generated SSH private keys to the server
+# If these are present, they will be written to /etc/ssh and
+# new random keys will not be generated.
+# This keys will used inside instance.
+ssh_keys:
+  # <pre-generated SSH private key>
+  rsa_private: |
+    -----BEGIN RSA PRIVATE KEY-----
+    ...
+    -----END RSA PRIVATE KEY-----
+  # <pre-generated SSH public key>
+  rsa_public: ssh-rsa ... user1@gmail.com
+
+# Add each entry to ~/.ssh/authorized_keys for the configured user or the
+# first user defined in the user definition directive.
+# This authorized keys will used between host OS and multipass instance.
+ssh_authorized_keys:
+  #- <SSH public key from host machine>
+  - ssh-rsa ... user1@gmail.com
+
+# Update apt database on first boot (run 'apt-get update').
+# Note, if packages are given, or package_upgrade is true, then
+# update will be done independent of this setting.
+package_update: true
+
+# Upgrade the instance on first boot.
+# (ie run apt-get upgrade)
+package_upgrade: true
+
+# If a package installation or upgrade requires a reboot, then a reboot can be performed if package_reboot_if_required is set to true.
+package_reboot_if_required: true
+
+# Run commands on first boot
+# Ubuntu cloud-config runs as root.
+# Note that the runcmd module only writes the script to be run later. 
+# The module that actually runs the script is scripts-user in the Final boot stage.
+runcmd:
+  # copy pre-generated SSH key to added user
+  - cp /etc/ssh/ssh_host_* /home/ubuntu/.ssh/
+  - chown ubuntu\:ubuntu /home/ubuntu/.ssh/ssh_host_*
