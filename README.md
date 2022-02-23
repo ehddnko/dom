@@ -8,7 +8,7 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
 - git bash (Only Windows)
    * Because of running scripts in the Shell, it must set **end of line sequence** to LF.
    * Set **end of line sequence** 
-      - use command `git config --global core.autocrlf false` or set **Checkout as-is, commit as-is** when install git.
+      - use command `git config --global core.autocrlf false` or set '**Checkout as-is, commit as-is**' when install git.
 - multipass
    * Install on Windows: <https://multipass.run/docs/installing-on-windows>
    * Install on MacOS: <https://multipass.run/docs/installing-on-macos>
@@ -113,7 +113,7 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
           Output a usage guide and exit successfully.
       ```
       - For example: `mkvm-bash.sh -n docker-runner -c 1 -m 4G -d 64G -v 20.04 -i ~/.ssh/id_rsa`
-   * On MacOS, run `mkvm-zsh.sh`.
+   * On MacOS, run `sudo ./mkvm-zsh.sh`.
       ```
       Usage: mkvm-zsh.sh [-n | --name] [-c | --cpu] [-m | memory]
       [-d | --disk] [-v | --version] [-i | --identity] [-h | --help]
