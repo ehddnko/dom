@@ -9,6 +9,8 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
    * Because of running scripts in the Shell, it must set **end of line sequence** to LF.
    * Set **end of line sequence** 
       - use command `git config --global core.autocrlf false` or set '**Checkout as-is, commit as-is**' when install git.
+   * Disable linux subsystem. 
+      - **Setting** > **Apps** > **Apps & Feature** > **Programs & Features** > **Windows features** > disable Windows Subsystem for Linux > reboot
 - multipass
    * Install on Windows: <https://multipass.run/docs/installing-on-windows>
    * Install on MacOS: <https://multipass.run/docs/installing-on-macos>
