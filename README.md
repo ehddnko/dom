@@ -56,7 +56,7 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
    ```
    
 3. Edit `cloud-config.yaml`.
-   * copy content of SSH key into `cloud-config.yaml`
+   * copy content of SSH key into `cloud-config.yaml`. **Do note that save `cloud-config.yaml` as 'LF' after edit.**
    ```
    ...
    # Send pre-generated SSH private keys to the server
