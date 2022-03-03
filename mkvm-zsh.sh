@@ -241,7 +241,7 @@ echo -e "\nVerifying docker installation...\n"
 # verify that docker engine is installed correctly
 ssh ${VM_NAME} docker pull hello-world
 VERIFY_DOCKER=`ssh ${VM_NAME} docker run hello-world 2>&1 > /dev/null`
-if [ -z ${VERIFY_DOCKER} ]; then
+if [[ -z ${VERIFY_DOCKER} ]]; then
 	ssh ${VM_NAME} docker system prune -a -f > /dev/null 2>&1
 	echo -e "docker installation verified!\n"
 else
