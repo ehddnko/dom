@@ -270,7 +270,25 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
    * For Windows, select SSH config with colon. (manually added in previous step)
    * For MacOS, select SSH config added by script.
 
+
+## Multipass Usage
+
+- Ubuntu instance list.
+   ```
+   multipass ls
+   ```
    
+- Start Ubuntu instance.
+   ```
+   multipass start <instance name>
+   ```
+   
+- Stop Ubuntu instance
+   ```
+   multipass stop <instance name>
+   ```
+
+
 ## Tested environment
 
 - On Windows 10 Pro (update version: 20H2)
@@ -281,7 +299,36 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
    * multipass 1.8.1+mac
    * multipassd 1.8.1+mac
 
-   
+
+## TROBLESHOOTING
+
+- if existing multipass instance is not shown
+   * check multipassd is running by executing command "multipass --version"
+   * check Hyper-V manager that instance is exist.
+   * more reference : [github issues](https://github.com/canonical/multipass/issues/1119) - comment : markl11 commented on 9 Oct 2019
+   * after following instruction above, please restart your pc.
+
+- if your multipass instance is not accessible with ssh
+   * check ip address of your multipass instance by executing command "multipass ls"
+   * if ip address is changed, change your ip address at the HostName from ssh config file.   
+      For example, config file is existing at the "/c/Users/youngin.kim/.ssh/config"
+      ```
+      ...
+      Host docker-runner
+         HostName 192.168.145.125
+         User ubuntu
+         IdentityFile /c/Users/youngin.kim/.ssh/id_rsa
+         IdentitiesOnly yes
+
+      Host docker-runner-vscode
+         HostName 192.168.145.125
+         User ubuntu
+         IdentityFile /c:/Users/youngin.kim/.ssh/id_rsa
+         IdentitiesOnly yes
+      ...
+      ```
+
+
 ## References
 
 - [Multipass Documentation](https://multipass.run/docs)
