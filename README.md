@@ -311,7 +311,7 @@ This project use Hyperkit/Hyper-V as a virtualization provider. **Do note that i
 - if your multipass instance is not accessible with ssh
    * check ip address of your multipass instance by executing command "multipass ls"
    * if ip address is changed, change your ip address at the HostName from ssh config file.   
-      For example, config file is existing at the "/c/Users/youngin.kim/.ssh/config"
+      For example, config file is existing at the "/c/Users/.ssh/config"
       ```
       ...
       Host docker-runner
